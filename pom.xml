@@ -31,7 +31,7 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-				<!-- 내장형 톰켓 JSP 라이브러리 -->
+		<!-- 내장형 톰켓 JSP 라이브러리 -->
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
 		<dependency>
 		    <groupId>org.apache.tomcat.embed</groupId>
