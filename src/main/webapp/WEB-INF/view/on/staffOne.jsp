@@ -20,6 +20,7 @@
 		
 		<div class="col-sm-10">
 			<!-- main content -->
+			<h1>staffOne</h1>
 		</div>
 	</div>
 </body>

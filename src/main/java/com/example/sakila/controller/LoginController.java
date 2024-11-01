@@ -16,8 +16,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j // 이 클래스에서 log라는 변수를 사용 가능 (객체 자동 주입)
 @Controller
 public class LoginController {
-	@Autowired
-	private StaffMapper staffMapper; // 인터페이스
+	@Autowired StaffMapper staffMapper; 
+	
+	// 로그아웃
+	@GetMapping("/on/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		log.debug("로그아웃 성공"); 
+		return "redirect:/off/login"; // 자동으로 : 뒤에 request.contextPath 주입
+	}
+	
 	
 	// 로그인 폼
 	@GetMapping("/off/login")	
