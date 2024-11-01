@@ -11,9 +11,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 </head>
-<body class="container-flud">
+<body class="container-fluid">
 	<div class="row">
-		<div class="col-sm-2 " style="width : 220px;">
+		<div class="col-sm-2">
 			<!-- leftMenu.jsp include -->
 			<c:import url="/WEB-INF/view/on/inc/leftMenu.jsp"></c:import>
 		</div>

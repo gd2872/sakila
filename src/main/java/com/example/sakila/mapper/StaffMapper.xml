@@ -17,7 +17,7 @@
 			, username
 			, last_update lastUdate
 		FROM staff
-		WHERE satff_id = #{staffId}			
+		WHERE staff_id = #{staffId}			
 	</select>
 
 
