@@ -28,42 +28,39 @@
 			<h1 class="text-center">마이페이지</h1>
 			<hr class=" mb-3 mt-3">
 				
-			<!-- 스태프 정보 -->
-			<h3 class="text-center mb-3 mt-4">개인 정보</h3>
-			<table class="table table-bordered table-border">
+			<!-- 지점 정보 -->
+			<h3 class="text-center mb-3 mt-4">매장 정보</h3>
+			<table class="table table-bordered mb-3 mt-4">
 				<tr>
 					<td class="text-center">ID</td>
-					<td>${staff.staffId}</td>
+					<td>${staff.storeId}</td>
 				</tr>
 				<tr>
-					<td class="text-center">이름</td>
-					<td>${staff.firstName} ${staff.lastName}</td>
+					<td class="text-center">스태프 ID</td>
+					<td>${staff.managerStaffId}</td>
+				</tr>
+				<tr>
+					<td class="text-center">매니저</td>
+					<td>${staff.managerName}</td>
 				</tr>
 				<tr>
 					<td class="text-center">우편번호</td>
-					<td>(${empty staff.staffPostCode ? '00000' : staff.staffPostCode})</td>
+					<td>(${empty staff.storePostCode ? '00000' : staff.storePostCode})</td>
 				</tr>
 				<tr>
 					<td class="text-center">주소</td>
-					<td>${staff.staffDistrict} ${staff.staffCity} ${staff.staffCountry}</td>
+					<td>${staff.storeDistrict} ${staff.storeCity} ${staff.storeCountry}</td>
 				</tr>
 				<tr>
 					<td class="text-center">상세주소</td>
-					<td>${staff.staffAddress} ${staff.staffAddress2}</td>
+					<td>${staff.storeAddress} ${staff.storeAddress2}</td>
 				</tr>
 				<tr>
 					<td class="text-center">연락처</td>
-					<td>${staff.staffPhone}</td>
-				</tr>
-				<tr>
-					<td class="text-center">매장 ID</td>
-					<td>
-						<a href="${pageContext.request.contextPath}/on/storeOne">
-							${staff.storeId}
-						</a>
-					</td>
+					<td>${staff.storePhone}</td>
 				</tr>
 			</table>
+			
 		</div>
 	</div>
 </body>

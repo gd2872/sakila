@@ -13,14 +13,16 @@
 </head>
 <body class="container-fluid">
 	<div class="row">
-		<div class="col-sm-2">
+		<div class="col-sm-2 mt-5">
 			<!-- leftMenu.jsp include -->
 			<c:import url="/WEB-INF/view/on/inc/leftMenu.jsp"></c:import>
 		</div>
 		
-		<div class="col-sm-10">
+		<div class="col-sm-9 mb-3 mt-3 ms-4">
 			<!-- main content -->
+			<h1 class="text-center">홈</h1>
+			<hr class=" mb-3 mt-3">
 		</div>
 	</div>
 </body>
-</html>
+</html>	

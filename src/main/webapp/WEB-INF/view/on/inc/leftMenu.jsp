@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div>
-	<ul class="list-group text-center">
-		<li class="list-group-item bg-secondary">
-			::: 개인 :::
-		</li>
+	<ul class="list-group text-center mb-3 mt-5">
 		<li class="list-group-item bg-light">
 			<a href="${pageContext.request.contextPath}/on/main"> 홈 </a>
+		</li>
+		<li class="list-group-item bg-secondary">
+			::: 개인 :::
 		</li>
 		<li class="list-group-item bg-light">
 			<a href="${pageContext.request.contextPath}/on/staffOne"> ${loginStaff.username}님 </a>
