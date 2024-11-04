@@ -30,7 +30,7 @@
 				
 			<!-- 지점 정보 -->
 			<h3 class="text-center mb-3 mt-4">매장 정보</h3>
-			<table class="table table-bordered mb-3 mt-4">
+			<table class="table table-bordered">
 				<tr>
 					<td class="text-center">ID</td>
 					<td>${staff.storeId}</td>

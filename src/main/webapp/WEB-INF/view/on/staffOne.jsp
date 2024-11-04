@@ -30,7 +30,7 @@
 				
 			<!-- 스태프 정보 -->
 			<h3 class="text-center mb-3 mt-4">개인 정보</h3>
-			<table class="table table-bordered table-border">
+			<table class="table table-bordered">
 				<tr>
 					<td class="text-center">ID</td>
 					<td>${staff.staffId}</td>
