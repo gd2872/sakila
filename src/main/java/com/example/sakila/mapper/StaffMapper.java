@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.example.sakila.vo.Staff;
 
-@Mapper
+@Mapper // MyBatis 사용됨 : .mxl -> SQL 쿼리 메소드 정의
 public interface StaffMapper {
 	
 	// 스태프 활성/비활성 변경 : /on/staffList.jsp

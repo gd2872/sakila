@@ -49,7 +49,7 @@
 			
 			<hr style="margin-top : 30px">
 			
-			<h3>입력</h3>
+			<h3>정보 입력</h3>
 			<form id="addForm" method="post" action="${pageContext.request.contextPath}/on/addStaff">
 				<table class="table table-bordered">
 					<tr>
@@ -82,7 +82,7 @@
 					</tr>
 
 					<tr>
-						<td>이메일</td>
+						<td>EMAIL</td>
 						<td><input type="email" name="email" id="email"></td>
 					</tr>
 

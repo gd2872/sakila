@@ -44,19 +44,20 @@ public class StaffController {
 	// leftMenu.a href 태그 통해서, addStaff.주소검색 (a = 넘어오는 값 없음, 주소검색 = 주소값 넘김 가능)
 	@GetMapping("/on/addStaff")
 	public String addStaff(Model model
-							, @RequestParam(defaultValue = "") String searchAddress) {
-		// model(storeList)
-		log.debug("searchAddress: " + searchAddress);
-
-		List<Store> storeList = storeMapper.selectStoreList();
-		model.addAttribute("storeList", storeList);
+							, @RequestParam(defaultValue = "") String searchAddress) { // 기본 주소검색값 = ""
+		log.debug("searchAddress: " + searchAddress); // 주소값 확인
 		
 		// model(addressList) <- searchAddress가 공백이 아니면 검색 후 재호출
-		if(searchAddress.equals("") == false) { // ! 공백이 아니면
+		if(searchAddress.equals("") == false) { // ! 공백이 아니면 검색값이 있는 리스트 보여줌
 			List<Address> addressList = addressMapper.selectAddressListByWord(searchAddress);
 			log.debug(addressList.toString());
 			model.addAttribute("addressList", addressList);
 		}
+		
+		// model(storeList)
+		List<Store> storeList = storeMapper.selectStoreList(); // 매장 목록 조회
+		model.addAttribute("storeList", storeList); // model에 상점 목록 추가
+		
 		return "on/addStaff";
 	}
 	
