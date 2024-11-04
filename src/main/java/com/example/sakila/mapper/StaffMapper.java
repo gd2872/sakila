@@ -11,7 +11,7 @@ import com.example.sakila.vo.Staff;
 public interface StaffMapper {
 	
 	// 스태프 활성/비활성 변경 : /on/staffList.jsp
-	int updateStaff(Staff staff); // update 하나로 모든 컬럼을 개별 수정 가능
+	int updateStaff(Staff staff); // update 하나로 모든 컬럼이 개별 수정 가능
 	
 	// 스태프 총 리스트  Row : /on/staffList.jsp 
 	int selectStaffCount();

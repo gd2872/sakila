@@ -32,7 +32,7 @@ public class StaffController {
 	// active 수정
 	@GetMapping("/on/modifyStaffActive")
 	public String modifyStaffActive(Staff staff) {
-		if(staff.getActive() == 1) {
+		if(staff.getActive() == 1) { // 1은 활성화 -> 비활성화 버튼 누르면 2 비활성화 됨
 			staff.setActive(2);
 		} else {
 			staff.setActive(1);

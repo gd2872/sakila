@@ -31,7 +31,7 @@
 			<h1 class="text-center">STAFF LIST</h1>
 			<hr class=" mb-3 mt-3">
 			
-			<table class="table table-bordered text-center">
+			<table class="table table-bordered">
 				<tr>
 					<td>StaffId</td>
 					<td>Name</td>
