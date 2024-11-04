@@ -55,7 +55,7 @@
 					<tr>
 						<td>STORE ID</td>
 						<td>
-							<select name="storeId">
+							<select id="storeId" name="storeId">
 								<option value="">::: 선택 :::</option>
 								<c:forEach var="s" items="${storeList}" >
 									<option value="${s.storeId}">${s.storeId}</option>
@@ -114,7 +114,8 @@
 			alert('email를 입력하세요');
 		} else if ($('#username').val() == null || $('#username').val() == '') {
 			alert('username를 입력하세요');
-		} else {			
+		} else {		
+			console.log('staff 추가 완료');
 			$('#addForm').submit();			
 		}	
 	});

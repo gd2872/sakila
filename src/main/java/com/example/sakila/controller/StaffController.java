@@ -1,5 +1,6 @@
 package com.example.sakila.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +28,19 @@ public class StaffController {
 	@Autowired StoreMapper storeMapper;
 	@Autowired AddressMapper addressMapper;
 	
+	
+	// active 수정
+	@GetMapping("/on/modifyStaffActive")
+	public String modifyStaffActive(Staff staff) {
+		if(staff.getActive() == 1) {
+			staff.setActive(2);
+		} else {
+			staff.setActive(1);
+		}
+		int row = staffMapper.updateStaff(staff); // 어떤 컬럼값을 수정하던 mapper 메소드는 하나
+		return "redirect:/on/staffList";
+	}
+	
 	// leftMenu.a href 태그 통해서, addStaff.주소검색 (a = 넘어오는 값 없음, 주소검색 = 주소값 넘김 가능)
 	@GetMapping("/on/addStaff")
 	public String addStaff(Model model
@@ -49,15 +63,41 @@ public class StaffController {
 	@PostMapping("/on/addStaff")
 	public String addStaff(Staff staff) { // 커맨드 객체 생성 -> 커맨드객체.set(request.getParameter())
 		// insert 호출
+		log.debug(staff.toString());
+		int row = staffMapper.insertStaff(staff);
+		log.debug("row : " + row);
+		if(row == 0) { // 입력 실패 시 입력페이지로 포워딩
+			return "on/addStaff";
+		}
 		return "redirect:/on/staffList";
 	}
 	
 	@GetMapping("/on/staffList")
-	public String staffList(@RequestParam(defaultValue = "1") int currentPage) { 
+	public String staffList(@RequestParam(defaultValue = "1") int currentPage
+							, @RequestParam(defaultValue = "10") int rowPerPage
+							, Model model) { 
 		// currentPage가 넘어오지 않으면 1
 		// moderl(staffList)
+		Map<String, Object> map = new HashMap<>();
+		int beginRow = (currentPage - 1) * rowPerPage;
+		map.put("beginRow", beginRow);
+		map.put("rowPerPage", rowPerPage);
+		log.debug(map.toString());
+				
+		List<Staff> staffList = staffMapper.selectStaffList(map);
+		log.debug(staffList.toString());
 		// @RequestParam(name = "currentPage") int currentPage
 		// request.getParameter("currentPage")를 받아와서 int 타입 currentPage로 형변환
+		
+		int count = staffMapper.selectStaffCount(); // 토탈 Row
+		int lastPage = count / rowPerPage;
+		if(count % rowPerPage != 0) {
+			lastPage++;
+		}
+		
+		model.addAttribute("staffList", staffList);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("lastPage", lastPage);
 		return "on/staffList";
 	}
 	

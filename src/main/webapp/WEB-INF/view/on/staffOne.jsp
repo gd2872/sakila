@@ -64,6 +64,7 @@
 					</td>
 				</tr>
 			</table>
+			<a href="">정보수정</a>
 		</div>
 	</div>
 </body>

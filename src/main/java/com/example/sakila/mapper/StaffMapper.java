@@ -1,5 +1,6 @@
 package com.example.sakila.mapper;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -8,6 +9,18 @@ import com.example.sakila.vo.Staff;
 
 @Mapper
 public interface StaffMapper {
+	
+	// 스태프 활성/비활성 변경 : /on/staffList.jsp
+	int updateStaff(Staff staff); // update 하나로 모든 컬럼을 개별 수정 가능
+	
+	// 스태프 총 리스트  Row : /on/staffList.jsp 
+	int selectStaffCount();
+	
+	// /on/staffList.jsp
+	List<Staff> selectStaffList(Map<String, Object> map);
+	
+	// /on/addStaff.jsp
+	int insertStaff(Staff staff);
 	
 	// /on/storeOne.jsp
 	Map<String, Object> selectStoreOne(int staffId); // FM : Integer
