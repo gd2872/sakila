@@ -16,6 +16,13 @@
 	td {
 		white-space : nowrap;
 	}
+	
+    .pagination {
+        display: flex;
+        justify-content: center; /* 중앙 정렬 */
+        margin-top: 20px; /* 테이블과의 간격 */
+    }
+	
 </style>
 
 </head>
@@ -40,8 +47,8 @@
 					<td>storeId</td>
 					<td>username</td>
 					<td>마지막 수정일</td>
-					<td>활성화(1) / 비활성화(2)</td>
-					<td>활성/비활성</td>
+					<td>활성화 상태</td>
+					<td>활성화 여부</td>
 				</tr>
 				<c:forEach var="s" items="${staffList}">
 					<tr>
@@ -62,6 +69,18 @@
 					</tr>
 				</c:forEach>
 			</table>
+			
+			<div class="text-center">
+				<c:if test="${currentPage > 1}">
+					<a href="${pageContext.request.contextPath}/on/staffList?currentPage=1">처음</a> &nbsp;
+					<a href="${pageContext.request.contextPath}/on/staffList?currentPage=${currentPage - 1}">이전</a> &nbsp;
+				</c:if>
+				[${currentPage}] &nbsp;
+				<c:if test="${currentPage < lastPage}">
+					<a href="${pageContext.request.contextPath}/on/staffList?currentPage=${currentPage + 1}">다음</a> &nbsp;
+					<a href="${pageContext.request.contextPath}/on/staffList?currentPage=${lastPage}">마지막</a> &nbsp;
+				</c:if>
+			</div>
 		</div>
 	</div>
 </body>

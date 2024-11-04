@@ -64,7 +64,13 @@
 					</td>
 				</tr>
 			</table>
-			<a href="">정보수정</a>
+			
+			<div class="text-center">
+				<a href="">비밀번호 수정</a> &nbsp;
+				<a href="">이메일 수정</a> &nbsp;
+				<a href="">주소 수정</a> &nbsp;
+				<a href="">매장 수정</a> &nbsp;
+			</div>
 		</div>
 	</div>
 </body>

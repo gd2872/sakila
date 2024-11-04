@@ -72,6 +72,7 @@ public class StaffController {
 		return "redirect:/on/staffList";
 	}
 	
+	// 페이징 : 스태프 리스트 (이전/다음)
 	@GetMapping("/on/staffList")
 	public String staffList(@RequestParam(defaultValue = "1") int currentPage
 							, @RequestParam(defaultValue = "10") int rowPerPage
