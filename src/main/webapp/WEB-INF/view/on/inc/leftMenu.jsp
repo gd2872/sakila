@@ -5,10 +5,10 @@
 			<a href="${pageContext.request.contextPath}/on/main"> 홈 </a>
 		</li>
 		<li class="list-group-item bg-secondary">
-			::: 개인 :::
+			::: ${loginStaff.username}님 :::
 		</li>
 		<li class="list-group-item bg-light">
-			<a href="${pageContext.request.contextPath}/on/staffOne"> ${loginStaff.username}님 </a>
+			<a href="${pageContext.request.contextPath}/on/staffOne"> 마이페이지 </a>
 		</li>
 		<li class="list-group-item bg-light">
 			<a href="${pageContext.request.contextPath}/on/logout"> 로그아웃 </a>
@@ -42,6 +42,15 @@
 		</li>
 		<li class="list-group-item bg-light">
 			<a href=""> 고객 추가 </a>
+		
+		<li class="list-group-item bg-secondary">
+			::: 배우 :::
+		</li>
+		<li class="list-group-item bg-light">
+			<a href=""> 배우 리스트 </a>
+		</li>
+		<li class="list-group-item bg-light">
+			<a href=""> 배우 추가 </a>
 		</li>
 	</ul>
 </div>
