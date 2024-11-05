@@ -33,11 +33,11 @@
 	<form id="form" action="${pageContext.request.contextPath}/off/login" method="post" style="width : 300px" class="form-container;"><!-- 폼 너비 설정 300px -->
 		<div class="mb-3 mt-3">
 			<label for="staffId" class="form-label"> 스태프 ID : </label> 
-			<input id="staffId" type="text" name="staffId" class="form-control">
+			<input id="staffId" type="text" name="staffId" class="form-control" value="1">
 		</div>
 		<div class="mb-3">
 			<label for="password" class="form-label"> 스태프 PW : </label> 
-			<input id="password" type="password" name="password" class="form-control">
+			<input id="password" type="password" name="password" class="form-control" value="1234">
 		</div>
 		<button id="btn" type="button" class="btn btn-primary w-100"> 로그인 </button><!-- 버튼 너비 설정 w-100 -->
 		<!-- jQuery를 위해 submit => button으로 바꿔야함  -->
