@@ -20,11 +20,13 @@
 			<c:import url="/WEB-INF/view/on/inc/leftMenu.jsp"></c:import>
 		</div>
 		
-		<div class="col-sm-9 mb-3 mt-3 ms-4">
+		<div class="col-sm-9 mb-3 mt-3 ms-4 text-center">
 			<!-- main content -->
 			<h1 class="text-center">ADD ACTOR</h1>
-			<hr class=" mb-3 mt-3">
 			
+			<hr>
+			
+			<h3 class="mb-3 mt-4"> 정보 </h3>
 			<form id="formActor" method="post" action="${pageContext.request.contextPath}/on/addActor"
 				enctype="multipart/form-data">
 				<table class="table table-bordered">

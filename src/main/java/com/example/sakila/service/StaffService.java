@@ -26,6 +26,7 @@ public class StaffService {
 		return staffMapper.selectStaffOne(staffId);
 	}
 	
+	// 마지막 페이지
 	public int getLastPage (int rowPerPage) {
 		int count = staffMapper.selectStaffCount(); // 토탈 Row
 		int lastPage = count / rowPerPage;
@@ -35,14 +36,17 @@ public class StaffService {
 		return lastPage;
 	}
 	
+	// 스태프 리스트
 	public List<Staff> getStaffList(Map paramMap) {
 		return staffMapper.selectStaffList(paramMap);
 	}
 	
+	// 스태프 추가
 	public int addStaff(Staff paramStaff) {
 		return staffMapper.insertStaff(paramStaff);
 	}
 	
+	//
 	public int modifyStaff(Staff paramStaff) {
 		return staffMapper.updateStaff(paramStaff);
 	}

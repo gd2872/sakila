@@ -15,7 +15,7 @@
 </head>
 <body class="container-fluid">
 	<div class="row">
-		<div class="col-sm-2 mt-5 ">
+		<div class="col-sm-2 mt-5">
 			<!-- leftMenu.jsp include -->
 			<c:import url="/WEB-INF/view/on/inc/leftMenu.jsp"></c:import>
 		</div>

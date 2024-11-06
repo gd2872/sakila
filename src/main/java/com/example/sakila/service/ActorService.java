@@ -1,7 +1,9 @@
 package com.example.sakila.service;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +25,41 @@ import lombok.extern.slf4j.Slf4j;
 public class ActorService {
 	@Autowired ActorMapper actorMapper;
 	@Autowired ActorFileMapper actorFileMapper;
+
+	// on/actorOne 
+	public Actor getActorOne(int ActorId) {
+		return actorMapper.selectActorOne(ActorId);
+	}
 	
+	// 배우 리스트 페이징
+	public int getTotalCount (int rowPerPage, String searchWord) {
+		int count = actorMapper.selectActorCount(searchWord);
+		int lastPage = count / rowPerPage;
+		if(count % rowPerPage != 0) {
+			lastPage++;
+		}
+		return lastPage; 
+	}
+	
+	// 배우 리스트
+	public List<Actor> getActorList(int currentPage, int rowPerPage, String searchWord){
+		Map<String, Object> paramMap = new HashMap<>();
+		int beginRow = (currentPage - 1) * rowPerPage;
+		paramMap.put("beginRow", beginRow);
+		paramMap.put("rowPerPage", rowPerPage);
+		paramMap.put("searchWord", searchWord); // 검색어 없으면 null
+		
+		return actorMapper.selectActorList(paramMap);
+	}
+	
+	// 배우 추가 
 	public void addActor(ActorForm actorForm, String path) {
 		Actor actor = new Actor();
 		actor.setFirstName(actorForm.getFirstName());
 		actor.setLastName(actorForm.getLastName());
 		
-		int row1 = actorMapper.insertActor(actor); // actorId = 0
+		// actorId = 0
+		int row1 = actorMapper.insertActor(actor);
 		// mybatis selectKey의 값
 		int actorId = actor.getActorId();
 		
