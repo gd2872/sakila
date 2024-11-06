@@ -24,6 +24,9 @@
 			<!-- main content -->
 			<h1 class="text-center">홈</h1>
 			<hr>
+			
+			<table class="table table-bordered text-center">
+			</table>
 		</div>
 	</div>
 </body>
