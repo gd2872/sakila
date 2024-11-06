@@ -10,6 +10,10 @@ import com.example.sakila.vo.Actor;
 @Mapper
 public interface ActorMapper {
 	
+	// on/filmOne
+	// 작품에 출연한 배우 리스트
+	List<Actor> selectAcotrListByFilm(int filmId);
+	
 	// 배우 상세 -> ActorMapper.xml
 	Actor selectActorOne(int actorId);
 	
