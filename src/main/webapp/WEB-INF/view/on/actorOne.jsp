@@ -46,6 +46,8 @@
 				<a href="">수정</a>
 			</div>
 			
+			<hr class="mb-4 mt-4">
+			
 			<!-- ACTOR FILE -->
 			<h2>ACTOR FILE</h2>
 			<table class="table table-bordered text-center">
@@ -72,13 +74,41 @@
 				<a href="">이미지파일 추가</a>
 			</div>
 			
+			<hr class="mb-4 mt-4">
+			
 			<!-- FILM -->
-			<h2>출연 작품</h2>
-			<c:forEach var="f" items="${filmList}">
-				<a href="${pageContext.request.contextPath}/on/filmOne?filmId=${f.filmId}">
-					${f.title}
-				</a> &nbsp;
-			</c:forEach>
+			<h2 class="mb-3">출연 작품</h2>
+			<table class="table table-bordered text-center">
+				<c:forEach var="f" items="${filmList}">
+					<tr>
+						<td>
+							<a href="${pageContext.request.contextPath}/on/filmOne?filmId=${f.filmId}">
+								${f.title}
+							</a> &nbsp;
+						</td>					
+					</tr>
+				</c:forEach>
+			</table>
+			
+			<table class="table table-bordered text-center">
+			    <thead>
+			        <tr>
+			            <th>출연 작품</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr>
+			            <td>
+			                <c:forEach var="f" items="${filmList}">
+			                    <a href="${pageContext.request.contextPath}/on/filmOne?filmId=${f.filmId}" class="d-inline-block mb-2">
+			                        ${f.title}
+			                    </a>
+			                    <br>
+			                </c:forEach>
+			            </td>
+			        </tr>
+			    </tbody>
+			</table>
 		</div>
 	</div>
 </body>

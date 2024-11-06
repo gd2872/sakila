@@ -23,14 +23,14 @@
 		<div class="col-sm-9 mb-3 mt-3 ms-4">
 			<!-- main content -->
 			<h1 class="text-center">ACTOR LIST</h1>
-			<hr class=" mb-3 mt-3">
+			<hr class=" mb-5 mt-3">
 			
-			<form id="formSearch" method="get" action="${pageContext.request.contextPath}/on/actorList">
-				<input type="text" name="searchWord" id="searchWord">
+			<form id="formSearch" method="get" action="${pageContext.request.contextPath}/on/actorList" class="text-center mb-4">
+				<input type="text" name="searchWord" id="searchWord" class="mb-3" style="width: 50%;">
 				<button id="btnSearch">이름 검색</button>
 			</form>
 			
-			<table class="table table-bordered text-center">
+			<table class="table table-bordered text-center" >
 				<tr>
 					<td>ACTOR ID</td>
 					<td>NAME</td>
@@ -47,7 +47,7 @@
 				</c:forEach>
 			</table>
 			
-			<div>
+			<div class="text-center justify-content-center">
 				<c:if test="${currentPage > 1}">
 					<a href="${pageContext.request.contextPath}/on/actorList?currentPage=1&searchWord=${searchWord}">처음</a> &nbsp;
 					<a href="${pageContext.request.contextPath}/on/actorList?currentPage=${currentPage-1}&searchWord=${searchWord}">이전</a> &nbsp;
