@@ -22,11 +22,55 @@
 		
 		<div class="col-sm-9 mb-3 mt-3 ms-4">
 			<!-- main content -->
-			<h1 class="text-center">FILM</h1>
+			<h1 class="text-center">작품 상세</h1>
+			<hr>
+			
+					${film}
+			<div>
+			<table class="table table-bordered text-center">
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			</div>
+			
 			<hr>
 			
 			<div>
-				<h3>작품에 출연한 배우들</h3>
+				<h3>출연 배우</h3>
 				<div>
 					<c:forEach var="a" items="${actorList}">
 						<div>
@@ -38,9 +82,6 @@
 				</div>
 			</div>
 				
-				<table class="table table-bordered text-center">
-				</table>
-			
 		</div>
 	</div>
 </body>
