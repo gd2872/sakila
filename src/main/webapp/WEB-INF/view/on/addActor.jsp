@@ -24,6 +24,9 @@
 			<!-- main content -->
 			<h1 class="text-center">ADD ACTOR</h1>
 			
+			
+			<div>${msg}</div>
+			
 			<hr>
 			
 			<h3 class="mb-3 mt-4"> 정보 </h3>

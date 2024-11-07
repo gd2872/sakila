@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.sakila.service.ActorFileService;
 import com.example.sakila.service.ActorService;
@@ -66,7 +67,7 @@ public class ActorController {
 	
 	// 배우 추가 액션
 	@PostMapping("/on/addActor")
-	public String addActor(HttpSession session, ActorForm actorForm) { // input type="file" 파일이 여러개니 배열 or List로 받음
+	public String addActor(HttpSession session, Model model, ActorForm actorForm) { // input type="file" 파일이 여러개니 배열 or List로 받음
 		// (Actor actor, List<MultipartFile> actorFile) 이렇게 받을 수 있지만 vo 만들어서 할 수 있음 
 		/* 디버깅
 		log.debug(actorForm.getFirstName());
@@ -76,6 +77,17 @@ public class ActorController {
 			log.debug("actorFile size : " + actorForm.getActorFile().size());
 		}
 		*/
+		List<MultipartFile> list = actorForm.getActorFile();
+		if(list != null && list.size() !=0) { // 첨부된 파일이 있다면			
+			for(MultipartFile f : list) { // 이미지파일은 *.jpg or *.png 가능
+				if(f.getContentType().equals("image/jpeg") == false 
+						&& f.getContentType().equals("image/png") == false) {
+					model.addAttribute("msg", "이미지 파일만 입력이 가능합니다");
+					return "on/addActor"; // 폼으로 가면서 
+				}
+			}
+		}
+		
 		String path = session.getServletContext().getRealPath("/upload/"); // /슬래시 주의
 		log.debug(path);
 		
