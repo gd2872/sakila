@@ -43,7 +43,8 @@
 			</table>
 			
 			<div>
-				<a href="">수정</a>
+				<a href="${pageContext.request.contextPath}/on/modifyActor">
+					actor 수정[과제 : 입력폼, 액션, 서비스, 맵퍼...]</a>
 			</div>
 			
 			<hr class="mb-4 mt-4">
@@ -59,19 +60,21 @@
 					<td>삭제</td>
 				</tr>
 				<c:forEach var="af" items="${actorFileList}">
-					<td>
-						<img alt="" src="${pageContext.request.contextPath}/upload/${af.filename}.${af.ext}"
-							download="${af.originname}.${af.ext}">
-					</td>
-					<td>${af.type}</td>
-					<td>${af.size} Byte</td>
-					<td>${af.createDate}</td>
-					<td><a href="">삭제</a></td>
+					<tr>
+						<td>
+							<img src="${pageContext.request.contextPath}/upload/${af.filename}.${af.ext}"
+								download="${af.originname}.${af.ext}">
+						</td>
+						<td>${af.type}</td>
+						<td>${af.size} Byte</td>
+						<td>${af.createDate}</td>
+						<td><a href="" calss="btn btn-warning">삭제</a></td>
+					</tr>
 				</c:forEach>
 			</table>
 			
 			<div><!-- 이미지파일 추가 폼으로 이동 -->
-				<a href="">이미지파일 추가</a>
+				<a href="${pageContext.request.contextPath}/on/addActorFile?actorId=${actor.actorId}" class="btn btn-success">이미지파일 추가</a>
 			</div>
 			
 			<hr class="mb-4 mt-4">

@@ -10,7 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <meta charset="UTF-8">
-<title>ADD ACTOR</title>
+<title>ADD ACTOR FILE</title>
 
 </head>
 <body class="container-fluid">
@@ -20,53 +20,49 @@
 			<c:import url="/WEB-INF/view/on/inc/leftMenu.jsp"></c:import>
 		</div>
 		
-		<div class="col-sm-9 mb-3 mt-3 ms-4 text-center">
+		<div class="col-sm-9 mb-3 mt-3 ms-4">
 			<!-- main content -->
-			<h1 class="text-center">ADD ACTOR</h1>
-			
+			<h1 class="text-center">ADD ACTOR FILE</h1>
 			<hr>
-			
-			<h3 class="mb-3 mt-4"> 정보 </h3>
-			<form id="formActor" method="post" action="${pageContext.request.contextPath}/on/addActor"
-				enctype="multipart/form-data">
-				<table class="table table-bordered">
+			<form method="post" id="formAddActorFile" enctype="multipart/form-data"
+					action="${pageContext.request.contextPath}/on/addActorFile">
+				<table class="table table-bordered text-center">
 					<tr>
-						<td>First Name</td>
-						<td><input type="text" name="firstName"></td>
+						<td>actorid</td>
+						<td>
+							<input type="text" name="actorId" value="${actorId}" readonly>
+						</td>
 					</tr>
 					<tr>
-						<td>Last Name</td>
-						<td><input type="text" name="lastName"></td>
-					</tr>
-					<tr>
-						<td>File</td>
+						<td>file</td>
 						<td>
 							<div id="fileDiv">
-								<button type="button" id="btnAddFile">파일 추가</button>
-								<button type="button" id="btnRemoveFile">파일 삭제</button>
+								<button type="button" id="btnAddFile">파일추가</button>
+								<button type="button" id="btnRemoveFile">파일삭제</button>
+								<input type="file" name="actorFile" class="actorFile">
 							</div>
 						</td>
 					</tr>
 				</table>
-				<button type="button" id="btnAddActor">배우 추가</button>
+				<button type="button" id="btnAddActorFile">배우 사진 추가</button>
 			</form>
 		</div>
 	</div>
 </body>
 
 <script>
-	$('#btnAddActor').click(function() {
-		// last 값 공백인지 확인
-		if($('#firstname').val() == '' || $('#lastName').val() == '') {
-			alert('이름을 입력하세요');
-		} else if($('.actorFile').length > 0 && $('.actorFile').last().val() == '') {
+	$('#btnAddActorFile').click(function() {
+		// 파일이 공백인지
+		if($('.actorFile').length == 0) {
+			alert('첨부할 파일이 없습니다');	
+		} else if($('.actorFile').last().val() == '') {
 			alert('첨부되지 않은 파일이 있습니다');	
 		} else {
-			$('#formActor').submit();
+			$('#formAddActorFile').submit();
 		}
 	});
-	
-	// 파일 추가
+
+	//파일 추가
 	$('#btnAddFile').click(function() {
 		if($('.actorFile').last().val() == '') { // 마지막 input=file 값이 공백이라면
 			alert('첨부하지 않은 파일이 이미 존재합니다');
@@ -86,28 +82,6 @@
 			$('.actorFile').last().remove(); // 마지막 파일선택 삭제
 		}
 	});
-	
-	/* $('#btnAddFile').click(function() {
-	
-	* 자바스크립트 API 사용 
-	let arr = $('.actorFile');
-	arr.forEach(function(item, index) {
-		
-	* jQuery API 사용 
-	let flag = true;
-	$('.actorFile').each(function() { // 매개값(index, item), item == $(this)
-		if($(this).val() == ''){
-			flag = false;
-		}
-		console.log($(this).val());
-	});
-	if(flag) {
-		// addFile 버튼 누를때마다 파일 선택 추가(여러 파일 선택 가능)
-		let html = '<input type="file" name="actorFile" class="actorFile">'; 
-		$('#fileDiv').append(html);
-	} else {
-		alert('첨부하지 않은 파일이 이미 존재합니다');
-	}
-	*/
 </script>
+
 </html>	

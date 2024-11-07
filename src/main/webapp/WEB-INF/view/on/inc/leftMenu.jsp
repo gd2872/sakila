@@ -15,13 +15,23 @@
 		</li>
 			
 		<li class="list-group-item bg-secondary">
-			::: 지점 :::
+			::: 영화 :::
 		</li>
 		<li class="list-group-item bg-light">
-			<a href=""> 지점 리스트 </a>
+			<a href="${pageContext.request.contextPath}/on/filmList"> 영화 리스트 </a>
 		</li>
 		<li class="list-group-item bg-light">
-			<a href=""> 지점 추가 </a>
+			<a href="${pageContext.request.contextPath}/on/addFilm"> 영화 추가 </a>
+		</li>
+		
+		<li class="list-group-item bg-secondary">
+			::: 배우 :::
+		</li>
+		<li class="list-group-item bg-light">
+			<a href="${pageContext.request.contextPath}/on/actorList"> 배우 리스트 </a>
+		</li>
+		<li class="list-group-item bg-light">
+			<a href="${pageContext.request.contextPath}/on/addActor"> 배우 추가 </a>
 		</li>
 		
 		<li class="list-group-item bg-secondary">
@@ -35,6 +45,16 @@
 		</li>
 		
 		<li class="list-group-item bg-secondary">
+			::: 지점 :::
+		</li>
+		<li class="list-group-item bg-light">
+			<a href=""> 지점 리스트 </a>
+		</li>
+		<li class="list-group-item bg-light">
+			<a href=""> 지점 추가 </a>
+		</li>
+		
+		<li class="list-group-item bg-secondary">
 			::: 고객 :::
 		</li>
 		<li class="list-group-item bg-light">
@@ -43,14 +63,11 @@
 		<li class="list-group-item bg-light">
 			<a href=""> 고객 추가 </a>
 		
+		
 		<li class="list-group-item bg-secondary">
-			::: 배우 :::
+			::: 통계 :::
 		</li>
-		<li class="list-group-item bg-light">
-			<a href="${pageContext.request.contextPath}/on/actorList"> 배우 리스트 </a>
-		</li>
-		<li class="list-group-item bg-light">
-			<a href="${pageContext.request.contextPath}/on/addActor"> 배우 추가 </a>
-		</li>
+
+		
 	</ul>
 </div>
