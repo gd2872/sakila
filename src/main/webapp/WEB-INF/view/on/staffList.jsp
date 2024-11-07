@@ -36,7 +36,7 @@
 		<div class="col-sm-9 mb-3 mt-3 ms-4">
 			<!-- main content -->
 			<h1 class="text-center">STAFF LIST</h1>
-			<hr class=" mb-3 mt-3">
+			<hr class=" mb-4 mt-3">
 			
 			<table class="table table-bordered">
 				<tr>

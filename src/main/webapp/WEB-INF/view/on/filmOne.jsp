@@ -24,9 +24,11 @@
 			<!-- main content -->
 			<h1 class="text-center">작품 상세</h1>
 			<hr>
-			
 					${film}
 			<div>
+			<div>
+				<a href="">영화 수정</a>
+			</div>
 			<table class="table table-bordered text-center">
 				<tr>
 					<td></td>
