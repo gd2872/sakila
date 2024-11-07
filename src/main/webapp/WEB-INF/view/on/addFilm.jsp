@@ -26,26 +26,18 @@
 			<hr>
 			
 			<form id="formAddFilm" method="post" action="${pageContext.request.contextPath}/on/addFilm">
-				<table class="table table-bordered text-center" style="width : 80%">
+				<table class="table table-bordered" style="width : 80%">
+					<tr>
+						<td colspan="2">필수적 항목</td>
+					</tr>
+					
 					<tr>
 						<td>title</td>
 						<td>
 							<input type="text" id="title" name="title">
 						</td>
 					</tr>
-					<tr>
-						<td>description</td>
-						<td>
-							<!-- textarea -->
-							<textarea rows="3" cols="50" id="description" name="description"></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td>releaseYear</td>
-						<td>
-							<input type="number" id="releaseYear" name="releaseYear">
-						</td>
-					</tr>
+					
 					<tr>
 						<td>languageId</td>
 						<td>
@@ -57,37 +49,23 @@
 							</select>	
 						</td>
 					</tr>
-					<tr>
-						<td>originalLanguageId</td>
-						<td>
-							<select id="originalLanguageId" name="originalLanguageId">
-								<option value="">오리지널 언어 선택</option>
-								<c:forEach var="la" items="${languageList}">
-									<option value="${la.languageId}">${la.name}</option>
-								</c:forEach>
-							</select>
-						</td>
-					</tr>
+					
 					<tr>
 						<td>rentalDuration</td>
 						<td>
 							<!-- DB 기본값 : 3 -->
-							<input type="number" id="rentalDuration" name="rentalDuration" value="3">
+							<input type="number" id="rentalDuration" name="rentalDuration" value="3">일
 						</td>
 					</tr>
+					
 					<tr>
 						<td>rentalRate</td>
 						<td>
 							<!-- DB 기본값 : 4.99 -->
-							<input type="number" id="rentalRate" name="rentalRate" value="4.99">
+							<input type="number" id="rentalRate" name="rentalRate" value="4.99">$
 						</td>
 					</tr>
-					<tr>
-						<td>length</td>
-						<td>
-							<input type="number" id="length" name="length">분
-						</td>
-					</tr>
+					
 					<tr>
 						<td>replacementCost</td>
 						<td>
@@ -106,6 +84,45 @@
 							<input type="radio" name="rating" class="rating" value="NC-17">NC-17<br>
 						</td>
 					</tr>
+					
+					<tr>
+						<td colspan="2" class="fw-bold">선택적 항목</td>
+					</tr>
+					<!-- 선택적 항목 -->
+					<tr>
+						<td>description</td>
+						<td>
+							<!-- textarea -->
+							<textarea rows="3" cols="50" id="description" name="description"></textarea>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>originalLanguageId</td>
+						<td>
+							<select id="originalLanguageId" name="originalLanguageId">
+								<option value="">오리지널 언어 선택</option>
+								<c:forEach var="la" items="${languageList}">
+									<option value="${la.languageId}">${la.name}</option>
+								</c:forEach>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>releaseYear</td>
+						<td>
+							<input type="number" id="releaseYear" name="releaseYear">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>length</td>
+						<td>
+							<input type="number" id="length" name="length">분
+						</td>
+					</tr>
+					
 					<tr>
 						<td>specialFeatures</td>
 						<td>
@@ -122,6 +139,7 @@
 								value="Behind the Scenes">Behind the Scenes<br>
 						</td>
 					</tr>
+					
 				</table>
 				<button type="button" id="btnAddFilm">영화 추가</button>
 			</form>
@@ -130,10 +148,23 @@
 </body>
 
 <script>
-	$('#btnAddFilm').click(function() {
-		// 폼 유효성 검사
-		$('#formAddFilm')
-	});
+   $('#btnAddFilm').click(function(){
+      // 폼 유효성 검사(제외 description, releaseYear, originalLanguageId, length, specialFeatures)
+      if($('#title').val() == '') {
+         alert('title을 입력하세요');
+      } else if($('#languageId').val() =='') {
+         alert('languageId를 선택하세요');
+      } else if($.isNumeric($('#rentalDuration').val()) == false) {
+         alert('rentalDuration 숫자를 입력하세요');
+      } else if($.isNumeric($('#rentalRate').val()) == false) {
+         alert('rentalRate 숫자를 입력하세요');
+      } else if($.isNumeric($('#replacementCost').val()) == false) {
+         alert('replacementCost 숫자를 입력하세요');
+      } else if($('.rating:checked').length == 0) {
+         alert('rating을 선택하세요');
+      } else {
+         $('#formAddFilm').submit();
+      }
+   });
 </script>
-
 </html>	

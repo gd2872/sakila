@@ -6,15 +6,17 @@ import lombok.Data;
 public class Film {
 	private int filmId; // PK
 	private String title; // 초록키
-	private String description;
-	private String releaseYear;
+	private String description; // 기본값 NULL
+	private Integer releaseYear; // 기본값 NULL, 숫자여도 null을 받고싶다면 Integer 사용
 	private int languageId; // FK
-	private int originalLanguageId; // FK
+	private Integer originalLanguageId; // FK, NULL
 	private int rentalDuration;
-	private Double rentalRate;
-	private int length;
-	private Double replacementCost;
+	private double rentalRate;
+	private Integer length; // 기본값 NULL
+	private double replacementCost;
 	private String rating;
-	private String specialFeatures;
+	private String specialFeatures; // 기본값 NULL
 	private String lastUpdate;
 }
+
+// null값 유효성 검사안해도 된다
