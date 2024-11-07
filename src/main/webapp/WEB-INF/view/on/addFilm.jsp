@@ -99,19 +99,41 @@
 						<td>rating</td>
 						<td>
 							<!-- radio, enum(G, PG, PG-13, R, NC-17), DB 기본값 : 'G'  -->
+							<input type="radio" name="rating" class="rating" value="G">G<br>
+							<input type="radio" name="rating" class="rating" value="PG">PG<br>
+							<input type="radio" name="rating" class="rating" value="PG-13">PG-13<br>
+							<input type="radio" name="rating" class="rating" value="R">R<br>
+							<input type="radio" name="rating" class="rating" value="NC-17">NC-17<br>
 						</td>
 					</tr>
 					<tr>
 						<td>specialFeatures</td>
 						<td>
-							<!-- checkBox
+							<!-- checkbox
 							, set('Trailers','Commentaries','Deleted Scenes','Behind the Scenes')
 							DB 기본값	 -->
+							<input type="checkbox" name="specialFeatures" class="specialFeatures"
+								value="Trailers">Trailers<br>
+							<input type="checkbox" name="specialFeatures" class="specialFeatures"
+								value="Commentaries">Commentaries<br>
+							<input type="checkbox" name="specialFeatures" class="specialFeatures"
+								value="Deleted Scenes">Deleted Scenes<br>
+							<input type="checkbox" name="specialFeatures" class="specialFeatures"
+								value="Behind the Scenes">Behind the Scenes<br>
 						</td>
 					</tr>
 				</table>
+				<button type="button" id="btnAddFilm">영화 추가</button>
 			</form>
 		</div>
 	</div>
 </body>
+
+<script>
+	$('#btnAddFilm').click(function() {
+		// 폼 유효성 검사
+		$('#formAddFilm')
+	});
+</script>
+
 </html>	
