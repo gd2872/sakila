@@ -21,6 +21,15 @@ import lombok.extern.slf4j.Slf4j;
 public class ActorFileController {
 	@Autowired ActorFileService actorFileService;
 	
+	@GetMapping("/on/removeActorFile")
+	public String removeActorFile(HttpSession session
+								, @RequestParam int actorFileId
+								, @RequestParam int actorId) {
+		String path = session.getServletContext().getRealPath("/upload/");
+		actorFileService.removeActorFile(actorFileId, path);
+		return "redirect:/on/actorOne?actorId=" + actorId;
+	}
+	
 	// 배우상세 : 이미지파일 추가 
 	@GetMapping("/on/addActorFile")
 	public String addActorFile(Model model, @RequestParam int actorId) {

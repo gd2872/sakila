@@ -83,7 +83,9 @@
 						<td>${af.type}</td>
 						<td>${af.size} Byte</td>
 						<td>${af.createDate}</td>
-						<td><a href="" calss="btn btn-warning">삭제</a></td>
+						<td><a href="${pageContext.request.contextPath}/on/removeActorFile?actorFileId=${af.actorFileId}&actorId=${actor.ac
+						torId}" 
+						calss="btn btn-warning">삭제</a></td>
 					</tr>
 				</c:forEach>
 			</table>
