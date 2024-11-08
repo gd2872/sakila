@@ -27,11 +27,11 @@
 			
 			● 2) actor_file 리스트
 			● 2-1) actor_file 추가
-			2-2) actor_file 삭제 /on/removeActorFile
+			● 2-2) actor_file 삭제 /on/removeActorFile
 			
 			● 3) film_actor 리스트
 			3-1) film_actor 추가 /on/addFilmByActor -> 필름 검색 후 선택
-			3-2) film_actor 삭제 /on/removeFilmActor
+			3-2) film_actor 삭제 /on/removeFilmByActor
 		
 		-->
 		
@@ -78,13 +78,12 @@
 					<tr>
 						<td>
 							<img src="${pageContext.request.contextPath}/upload/${af.filename}.${af.ext}"
-								download="${af.originname}.${af.ext}">
+								download="${af.originname}.${af.ext}" class="img-thumbnail" style="max-width: auto; height: auto;">
 						</td>
 						<td>${af.type}</td>
 						<td>${af.size} Byte</td>
 						<td>${af.createDate}</td>
-						<td><a href="${pageContext.request.contextPath}/on/removeActorFile?actorFileId=${af.actorFileId}&actorId=${actor.ac
-						torId}" 
+						<td><a href="${pageContext.request.contextPath}/on/removeActorFile?actorFileId=${af.actorFileId}&actorId=${actor.actorId}" 
 						calss="btn btn-warning">삭제</a></td>
 					</tr>
 				</c:forEach>
@@ -98,6 +97,29 @@
 			
 			<!-- FILM -->
 			<h2 class="mb-3">출연 작품</h2>
+			
+			<div>
+				<!-- 출연작 추가 -->
+				<form id="formSearchFilm" method="get" 
+					action="${pageContext.request.contextPath}/on/actorOne"><!-- 영화 검색 -->
+					<!-- 검색 시 actorId 같이 전송 -->
+					<input type="hidden" name="actorId" value="${actor.actorId}">
+					<input type="text" name="searchTitle">
+					<button type="button" id="btnSearchFilm">영화 검색</button>
+				</form>
+				
+				<form id="formAddFilm" method="post"
+					action="${pageContext.request.contextPath}/on/addFilmByActor">
+					<input type="hidden" name="actorId" value="${actor.actorId}">
+					<select size="5" name="filmId">
+						<c:forEach var="sf" items="${searchFilmList}">
+							<option value="${sf.filmId}">${sf.title}</option>
+						</c:forEach>
+					</select>
+					<button type="button" id="btnAddFilm">영화 추가</button>
+				</form>
+			</div>
+			
 			<table class="table table-bordered text-center">
 				<c:forEach var="f" items="${filmList}">
 					<tr>
@@ -132,4 +154,17 @@
 		</div>
 	</div>
 </body>
+
+<script>
+	// film title 검색 버튼
+	$('#btnSearchFilm').click(function() {
+		$('#formSearchFilm').submit();
+	});
+	
+	// 출연작(film) 추가 버튼
+	$('#btnAddFilm').click(function() {
+		$('#formAddFilm').submit();
+	});
+	
+</script>
 </html>	
