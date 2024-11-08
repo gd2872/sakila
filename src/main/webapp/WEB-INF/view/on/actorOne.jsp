@@ -30,8 +30,8 @@
 			● 2-2) actor_file 삭제 /on/removeActorFile
 			
 			● 3) film_actor 리스트
-			3-1) film_actor 추가 /on/addFilmByActor -> 필름 검색 후 선택
-			3-2) film_actor 삭제 /on/removeFilmByActor
+			● 3-1) film_actor 추가 /on/addFilmByActor -> 필름 검색 후 선택
+			● 3-2) film_actor 삭제 /on/removeFilmByActor
 		
 		-->
 		
@@ -84,7 +84,7 @@
 						<td>${af.size} Byte</td>
 						<td>${af.createDate}</td>
 						<td><a href="${pageContext.request.contextPath}/on/removeActorFile?actorFileId=${af.actorFileId}&actorId=${actor.actorId}" 
-						calss="btn btn-warning">삭제</a></td>
+						class="btn btn-warning">삭제</a></td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -120,32 +120,27 @@
 				</form>
 			</div>
 			
-			<table class="table table-bordered text-center">
-				<c:forEach var="f" items="${filmList}">
-					<tr>
-						<td>
-							<a href="${pageContext.request.contextPath}/on/filmOne?filmId=${f.filmId}">
-								${f.title}
-							</a> &nbsp;
-						</td>					
-					</tr>
-				</c:forEach>
-			</table>
+			<br>
 			
 			<table class="table table-bordered text-center">
 			    <thead>
 			        <tr>
-			            <th>출연 작품</th>
+			            <th>출연작품</th>
 			        </tr>
 			    </thead>
 			    <tbody>
 			        <tr>
 			            <td>
 			                <c:forEach var="f" items="${filmList}">
-			                    <a href="${pageContext.request.contextPath}/on/filmOne?filmId=${f.filmId}" class="d-inline-block mb-2">
-			                        ${f.title}
-			                    </a>
-			                    <br>
+			                    <div>
+				                    <a href="${pageContext.request.contextPath}/on/filmOne?filmId=${f.filmId}" class="d-inline-block mb-2 btn">
+				                        ${f.title}
+				                    </a>
+				                    &nbsp;
+				                    <a href="${pageContext.request.contextPath}/on/removeFilmActor?filmId=${f.filmId}&actorId=${actor.actorId}" 
+				                    class="btn btn-danger">film_actor에서 삭제</a>
+				                    <!-- 삭제 시 f.filmId & actor.actorId 필요 (기존쿼리 사용)-->
+			                    </div>
 			                </c:forEach>
 			            </td>
 			        </tr>
