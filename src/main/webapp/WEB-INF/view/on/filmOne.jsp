@@ -37,7 +37,7 @@
 		
 		<div class="col-sm-9 mb-3 mt-3 ms-4">
 			<!-- main content -->
-			<h1 class="text-center">작품 상세</h1>
+			<h1 class="text-center">FILM ONE</h1>
 			<hr>
 					${film}
 			<div>
@@ -46,40 +46,56 @@
 			</div>
 			<table class="table table-bordered text-center">
 				<tr>
-					<td></td>
-					<td></td>
+					<td>영화 ID</td>
+					<td>${film.filmId}</td>
 				</tr>
 				<tr>
-					<td></td>
-					<td></td>
+					<td>제목</td>
+					<td>${film.title}</td>
 				</tr>
 				<tr>
-					<td></td>
-					<td></td>
+					<td>영화 관람 등급</td>
+					<td>${film.rating}</td>
 				</tr>
 				<tr>
-					<td></td>
-					<td></td>
+					<td>상영 시간</td>
+					<td>${film.length}분</td>
 				</tr>
 				<tr>
-					<td></td>
-					<td></td>
+					<td>영화 줄거리</td>
+					<td>${film.description}</td>
 				</tr>
 				<tr>
-					<td></td>
-					<td></td>
+					<td>쿠키</td>
+					<td>${film.specialFeatures}</td>
 				</tr>
 				<tr>
-					<td></td>
-					<td></td>
+					<td>대여 요금</td>
+					<td>${film.rentalRate}$</td>
 				</tr>
 				<tr>
-					<td></td>
-					<td></td>
+					<td>대여 기간</td>
+					<td>${film.rentalDuration}</td>
+				</tr>
+				
+				<tr>
+					<td>마지막 업데이트</td>
+					<td>${film.lastUpdate}</td>
+				</tr>
+				
+				
+				<tr>
+					<td>분실 시 교체 비용</td>
+					<td>${film.replacementCost}$</td>
 				</tr>
 				<tr>
-					<td></td>
-					<td></td>
+					<td>언어</td>
+					<td>${film.language}</td>
+				</tr>
+				
+				<tr>
+					<td>개봉 연도</td>
+					<td>${film.releaseYear}</td>
 				</tr>
 			</table>
 			</div>
