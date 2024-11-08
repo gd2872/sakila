@@ -9,6 +9,9 @@ import com.example.sakila.vo.ActorFile;
 @Mapper
 public interface ActorFileMapper {
 	
+	// 배우삭제 -> 전체 이미지파일 삭제 /on/removeActor
+	int deleteActorFileByActor(int actorId);
+	
 	// 배우상세 -> 삭제할 이미지파일 이름 [Service]/on/removeActorFile
 	ActorFile selectActorFileOne(int actorFileId);	
 	

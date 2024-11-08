@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,6 +28,14 @@ public class ActorController {
 	@Autowired ActorFileService actorFileService;
 	@Autowired FilmService filmService;
 	
+	
+	@GetMapping("/on/removeActor")
+	public String removeActor(HttpSession session, @RequestParam int actorId) {
+		String path = session.getServletContext().getRealPath("/upload/");
+		actorService.removeActor(actorId, path);
+		
+		return "redirect:/on/actorList";
+	}
 	
 	@PostMapping("/on/modifyActor")
 	public String modifyActor(Actor actor) {

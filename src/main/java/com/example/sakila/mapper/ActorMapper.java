@@ -10,6 +10,9 @@ import com.example.sakila.vo.Actor;
 @Mapper
 public interface ActorMapper {
 	
+	// 배우 삭제
+	int deleteActor(int ActorId);
+	
 	// 배우 이름 수정
 	int updateActor(Actor actor);
 	

@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.sakila.mapper.ActorFileMapper;
 import com.example.sakila.mapper.ActorMapper;
+import com.example.sakila.mapper.FilmActorMapper;
 import com.example.sakila.vo.Actor;
 import com.example.sakila.vo.ActorFile;
 import com.example.sakila.vo.ActorForm;
@@ -25,7 +26,27 @@ import lombok.extern.slf4j.Slf4j;
 public class ActorService {
 	@Autowired ActorMapper actorMapper;
 	@Autowired ActorFileMapper actorFileMapper;
-
+	@Autowired FilmActorMapper filmActorMapper;
+	
+	// 배우상세 -> 삭제 /on/removeActor
+	public void removeActor(int actorId, String path) {
+	
+		// 1) film_actor 삭제 (삭제할 내용이 없을 수 있음)
+		filmActorMapper.deleteFileByActor(actorId); 
+		// 2) actor_file 삭제
+		List<ActorFile> list = actorFileMapper.selectActorFileListByActor(actorId);
+		actorFileMapper.deleteActorFileByActor(actorId);
+		// 3) actor 삭제
+		int row = actorMapper.deleteActor(actorId);
+		// 4) 물리적 파일 삭제
+		if(row == 1 && list != null && list.size() > 0) { // actor 삭제했고 물리적 파일이 존재한다면
+			for(ActorFile af : list) {
+				String fullname = path + af.getFilename() + "." + af.getExt();
+				File f = new File(fullname);
+				f.delete();
+			}
+		}
+	}
 	
 	// 배우상세 -> 이름 수정 /on/modifyActor
 	public int modifyActor(Actor actor) {
