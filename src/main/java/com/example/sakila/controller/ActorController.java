@@ -27,6 +27,24 @@ public class ActorController {
 	@Autowired ActorFileService actorFileService;
 	@Autowired FilmService filmService;
 	
+	
+	@PostMapping("/on/modifyActor")
+	public String modifyActor(Actor actor) {
+		log.debug(actor.toString());
+		
+		int row = actorService.modifyActor(actor);
+		
+		return "redirect:/on/actorOne?actorId=" + actor.getActorId();
+	}
+	// 배우 상세 -> 배우 수정
+	@GetMapping("/on/modifyActor")
+	public String modifyActor(Model model, @RequestParam int actorId) {
+		Actor actor = actorService.getActorOne(actorId);
+		
+		model.addAttribute("actor", actor);
+		return "on/modifyActor";
+	}
+	
 	@GetMapping("/on/actorOne")
 	public String actorOne(Model model
 						   , @RequestParam int actorId

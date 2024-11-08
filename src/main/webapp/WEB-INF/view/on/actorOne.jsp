@@ -58,8 +58,13 @@
 			</table>
 			
 			<div>
-				<a href="${pageContext.request.contextPath}/on/modifyActor">
-					actor 수정[과제 : 입력폼, 액션, 서비스, 맵퍼...]</a>
+				<a href="${pageContext.request.contextPath}/on/modifyActor?actorId=${actor.actorId}">
+					이름 수정
+				</a>
+				&nbsp;
+				<a href="${pageContext.request.contextPath}/on/removeActor?actorId=${actor.actorId}">
+					배우 삭제
+				</a>
 			</div>
 			
 			<hr class="mb-4 mt-4">

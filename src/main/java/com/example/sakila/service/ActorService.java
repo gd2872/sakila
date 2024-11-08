@@ -27,6 +27,11 @@ public class ActorService {
 	@Autowired ActorFileMapper actorFileMapper;
 
 	
+	// 배우상세 -> 이름 수정 /on/modifyActor
+	public int modifyActor(Actor actor) {
+		return actorMapper.updateActor(actor);
+	}
+	
 	// on/filmOne
 	public List<Actor> getActorListByFilm(int filmId) {
 		return actorMapper.selectAcotrListByFilm(filmId);
