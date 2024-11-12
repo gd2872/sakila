@@ -29,6 +29,7 @@ public class ActorController {
 	@Autowired FilmService filmService;
 	
 	
+	// 배우 상세 -> 배우 삭제
 	@GetMapping("/on/removeActor")
 	public String removeActor(HttpSession session, @RequestParam int actorId) {
 		String path = session.getServletContext().getRealPath("/upload/");
@@ -37,6 +38,7 @@ public class ActorController {
 		return "redirect:/on/actorList";
 	}
 	
+	// 배우 상세 -> 이름 수정
 	@PostMapping("/on/modifyActor")
 	public String modifyActor(Actor actor) {
 		log.debug(actor.toString());
@@ -54,6 +56,7 @@ public class ActorController {
 		return "on/modifyActor";
 	}
 	
+	// 배우 리스트 -> 배우 상세 뷰
 	@GetMapping("/on/actorOne")
 	public String actorOne(Model model
 						   , @RequestParam int actorId
