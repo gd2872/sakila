@@ -34,9 +34,9 @@ public class FilmController {
 	@Autowired FilmCategoryService filmCategoryService;
 	
 	// 필름 수정
-//	@GetMapping("/on/modifyFilm")
-//	public 
-//	return "";
+	//	@GetMapping("/on/modifyFilm")
+	//	public 
+	//	return "";
 
 	// 필름 삭제
 	@GetMapping("/on/removeFilm")
@@ -52,11 +52,13 @@ public class FilmController {
 			
 			model.addAttribute("film", film);
 			model.addAttribute("actorList", actorList);
-			model.addAttribute("msg", "film이 inventory에 존재합니다");
+			model.addAttribute("removeFilmMsg", "film이 inventory에 존재합니다");
 			return "on/filmOne"; // 메세지 추가하기 위해 코드 getM("/on/filmOne") 복붙
 		*/
 			return "redirect:/on/filmOne"; // 메세지 추가는 힘들다
 		}
+		
+		filmService.removeFilmByKey(filmId);
 		
 		return "redirect:/on/filmList";
 	}

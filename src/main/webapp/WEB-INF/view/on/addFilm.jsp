@@ -28,7 +28,7 @@
 			<form id="formAddFilm" method="post" action="${pageContext.request.contextPath}/on/addFilm">
 				<table class="table table-bordered" style="width : 80%">
 					<tr>
-						<td colspan="2">필수적 항목</td>
+						<td colspan="2">필수 항목</td>
 					</tr>
 					
 					<tr>
@@ -86,7 +86,7 @@
 					</tr>
 					
 					<tr>
-						<td colspan="2" class="fw-bold">선택적 항목</td>
+						<td colspan="2" class="fw-bold">선택 항목</td>
 					</tr>
 					<!-- 선택적 항목 -->
 					<tr>
