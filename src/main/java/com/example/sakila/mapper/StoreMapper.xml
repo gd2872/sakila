@@ -2,8 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.sakila.mapper.StoreMapper">
 	<select id="selectStoreList"
-			parameterType="com.example.sakila.vo.Store"><!-- 1개 받아오니까 int 로도 가능 -->
-		SELECT store_id storeId
-		FROM store	
+			parameterType="Map">
+		SELECT 
+		   s.store_id
+			, a.address address
+			, ci.city city
+			, co.country country
+			, st.first_name firstName
+			, st.last_name lastName
+			, st.email email
+			, ad.phone phone 
+		FROM store s
+			JOIN address a ON s.address_id = a.address_id
+			JOIN city ci ON a.city_id = ci.city_id
+			JOIN country co ON ci.country_id = co.country_id
+			JOIN staff st ON s.store_id = st.store_id
+			JOIN address ad ON st.address_id = ad.address_id
+		ORDER BY s.store_id;
 	</select>
 </mapper>

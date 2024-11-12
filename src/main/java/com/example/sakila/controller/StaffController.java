@@ -62,7 +62,7 @@ public class StaffController {
 		}
 		
 		// model(storeList)
-		List<Store> storeList = storeService.getStoreList(); // 매장 목록 조회
+		List<Map<String, Object>> storeList = storeService.getStoreList(); // 매장 목록 조회
 		model.addAttribute("storeList", storeList); // model에 상점 목록 추가
 		
 		return "on/addStaff";
