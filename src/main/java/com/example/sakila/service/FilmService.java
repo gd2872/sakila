@@ -21,6 +21,11 @@ public class FilmService {
 	@Autowired FilmActorMapper filmActorMapper;
 	@Autowired FilmCategoryMapper filmCategoryMapper;
 	
+	// 필름 수정
+	public int modifyFilm(Film film) {
+		return filmMapper.updateFilm(film);
+	}
+	
 	// 필름 삭제
 	public void removeFilmByKey(Integer filmId) {
 		// 1) 필름_카테고리 삭제
