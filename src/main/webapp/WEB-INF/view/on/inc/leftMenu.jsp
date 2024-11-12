@@ -13,15 +13,28 @@
 		<li class="list-group-item bg-light">
 			<a href="${pageContext.request.contextPath}/on/logout"> 로그아웃 </a>
 		</li>
-			
+
+		<!-- 영화관리 부분 -->	
 		<li class="list-group-item bg-secondary">
 			::: 영화 :::
 		</li>
 		<li class="list-group-item bg-light">
-			<a href="${pageContext.request.contextPath}/on/filmList"> 영화 리스트 </a>
+			<a href="${pageContext.request.contextPath}/on/categoryList"> 카테고리 리스트 </a>
 		</li>
 		<li class="list-group-item bg-light">
-			<a href="${pageContext.request.contextPath}/on/addFilm"> 영화 추가 </a>
+			<a href="${pageContext.request.contextPath}/on/addCategory"> 카테고리 추가 </a>
+		</li>
+		<li class="list-group-item bg-light">
+			<a href="${pageContext.request.contextPath}/on/languageList"> 언어 리스트 </a>
+		</li>
+		<li class="list-group-item bg-light">
+			<a href="${pageContext.request.contextPath}/on/addLanguage"> 언어 추가 </a>
+		</li>
+		<li class="list-group-item bg-light">
+			<a href="${pageContext.request.contextPath}/on/filmList"> 필름 리스트 </a>
+		</li>
+		<li class="list-group-item bg-light">
+			<a href="${pageContext.request.contextPath}/on/addFilm"> 필름 추가 </a>
 		</li>
 		
 		<li class="list-group-item bg-secondary">

@@ -16,7 +16,7 @@ public interface StaffMapper {
 	// 스태프 총 리스트  Row : /on/staffList.jsp 
 	int selectStaffCount();
 	
-	// /on/staffList.jsp
+	// 스태프 리스트 /on/staffList.jsp
 	List<Staff> selectStaffList(Map<String, Object> map);
 	
 	// /on/addStaff.jsp

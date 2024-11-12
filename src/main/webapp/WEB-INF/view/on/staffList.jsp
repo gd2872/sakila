@@ -40,13 +40,13 @@
 			
 			<table class="table table-bordered">
 				<tr>
-					<td>StaffId</td>
-					<td>Name</td>
-					<td>addressId</td>
-					<td>email</td>
-					<td>storeId</td>
-					<td>username</td>
-					<td>마지막 수정일</td>
+					<td>직원 ID</td>
+					<td>이름</td>
+					<td>주소 ID</td>
+					<td>EMAIL</td>
+					<td>매장 ID</td>
+					<td>닉네임</td>
+					<td>수정일</td>
 					<td>활성화 상태</td>
 					<td>활성화 여부</td>
 				</tr>
