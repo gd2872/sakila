@@ -135,17 +135,26 @@
 				<hr>
 			
 			<div>
-				<h3>출연 배우</h3>
+				<h3>작품 출연 배우</h3>
 				<div>
-					<form><!-- 배우 이름 검색 후 -->
-						<input type="text" name="searchName">
-						<button type="button">이름 검색</button>
+					<!-- 배우 이름 검색 후 -->
+					<form id="formSearchName" method="get"
+						action="${pageContext.request.contextPath}/on/filmOne">
+						
+						<input type="hidden" name="filmId" value="${film.filmId}">
+						
+						<input type="text" name="searchName" id="searchName">
+						<button type="button" id="btnSearchName">이름 검색</button>
 					</form>
 				
-					<form method="post"><!--  -->
+					<!-- 출연 배우 추가 -->
+					<form method="post">
 						<select name="actorId" id="actorId">
 							<option value="">배우 선택</option>
-							<!-- model.categoryList -->
+							<!-- model.searchActorList -->
+							<c:forEach var="sa" items="${searchActorList}">
+								<option value="${sa.actorId}">${sa.firstName} &nbsp; ${sa.lastName}</option>
+							</c:forEach>
 						
 						</select>
 						<button type="button">출연배우 추가</button>
@@ -166,6 +175,15 @@
 </body>
 
 <script>
+
+	$('#btnSearchName').click(function() {
+		if($('#searchName').val() == ''){
+			alert('배우 이름을 입력하세요');
+		} else {
+			$('#formSearchName').submit();
+		}
+	});
+
 	$('#btnFilmCategory').click(function() {
 		if($('#categoryId').val() == ''){
 			alert('categoryId를 선택하세요');

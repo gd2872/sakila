@@ -10,6 +10,9 @@ import com.example.sakila.vo.Actor;
 @Mapper
 public interface ActorMapper {
 	
+	// 필름 상세 -> searchName 검색 결과 : /on/filmOne
+	List<Actor> selectActorListByActor(String searchName);
+	
 	// 배우 삭제
 	int deleteActor(int ActorId);
 	
@@ -26,7 +29,7 @@ public interface ActorMapper {
 	// 배우 리스트
 	int selectActorCount(String searchWord);
 	
-	// 배우 리스트
+	// 배우 리스트 : /on/actorList
 	List<Actor> selectActorList(Map<String, Object> map);
 	// -> 매개변수 한가지 타입만 받을 수 있어서 Map 사용
 	

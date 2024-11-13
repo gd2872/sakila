@@ -137,7 +137,10 @@ public class FilmController {
 		log.debug(filmCategoryList.toString());
 		
 		// 4)
-		
+		if(searchName != null) { // 배우 이름 검색 버튼 요청으로 왔다면
+			List<Actor> searchActorList = actorService.getActorListByActor(searchName);
+			model.addAttribute("searchActorList", searchActorList); // 4)
+		}
 		
 		// 5)
 		List<Actor> actorList = actorService.getActorListByFilm(filmId);
@@ -146,7 +149,6 @@ public class FilmController {
 		model.addAttribute("film", film); // 1)
 		model.addAttribute("allCategoryList", allCategoryList); // 2)
 		model.addAttribute("filmCategoryList", filmCategoryList); // 3)
-		// model.addAttribute("filmActor", ); // 4)
 		model.addAttribute("actorList", actorList); // 5)
 		
 		return "on/filmOne";

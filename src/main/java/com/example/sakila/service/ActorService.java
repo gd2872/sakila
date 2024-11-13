@@ -28,6 +28,11 @@ public class ActorService {
 	@Autowired ActorFileMapper actorFileMapper;
 	@Autowired FilmActorMapper filmActorMapper;
 	
+	// 필름 상세 -> searchName 검색 결과 : /on/filmOne
+	public List<Actor> getActorListByActor(String searchName){
+		return actorMapper.selectActorListByActor(searchName);
+	}
+	
 	// 배우상세 -> 삭제 /on/removeActor
 	public void removeActor(int actorId, String path) {
 	
