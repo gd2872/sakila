@@ -8,14 +8,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.sakila.mapper.StoreMapper;
+import com.example.sakila.vo.Store;
 
 @Service
 @Transactional
 public class StoreService {
 	@Autowired StoreMapper storeMapper;
 	
-	public List<Map<String, Object>> getStoreList() {
+	public List<Store> getStoreList(){
 		return storeMapper.selectStoreList();
 	}
+	
+//	public List<Map<String, Object>> getStoreList() {
+//		return storeMapper.selectStoreList();
+//	}
 	
 }

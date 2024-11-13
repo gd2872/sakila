@@ -5,8 +5,12 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.example.sakila.vo.Store;
+
 
 @Mapper
 public interface StoreMapper {
-	List<Map<String, Object>> selectStoreList();
+	
+	List<Store> selectStoreList();
+	// List<Map<String, Object>> selectStoreList();
 }

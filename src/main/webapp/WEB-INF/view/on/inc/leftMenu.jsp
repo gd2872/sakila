@@ -46,6 +46,7 @@
 		<li class="list-group-item bg-light">
 			<a href="${pageContext.request.contextPath}/on/addActor"> 배우 추가 </a>
 		</li>
+
 		
 		<li class="list-group-item bg-secondary">
 			::: STAFF :::
@@ -61,10 +62,13 @@
 			::: 지점 :::
 		</li>
 		<li class="list-group-item bg-light">
-			<a href=""> 지점 리스트 </a>
+			<a href="${pageContext.request.contextPath}/on/storeList"> 지점 리스트 </a>
 		</li>
 		<li class="list-group-item bg-light">
 			<a href=""> 지점 추가 </a>
+		</li>
+		<li class="list-group-item bg-light">
+			<a href="${pageContext.request.contextPath}/on/addInventory"> 인벤토리 추가 </a>
 		</li>
 		
 		<li class="list-group-item bg-secondary">
