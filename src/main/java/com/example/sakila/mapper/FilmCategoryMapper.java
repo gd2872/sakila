@@ -5,8 +5,13 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.example.sakila.vo.FilmCategory;
+
 @Mapper
 public interface FilmCategoryMapper {
+	
+	// 필름상세 -> 카테고리 추가 : /on/addFilmCategory
+	Integer insertFilmCategory(FilmCategory filmCategory);
 	
 	// 해당 필름의 카테고리 리스트 : /on/filmOne
 	List<Map<String, Object>> selectFilmCategoryListByFilm(Integer filmId);

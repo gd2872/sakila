@@ -26,7 +26,7 @@
 			● 1-2) film 삭제 : /on/removeFilm(inventory 렌탈정보확인 + film_category 삭제 + film_actor 삭제 + film 삭제)
 			
 			● 2) film_category 리스트
-			2-1) film_category 추가 /on/addFilmCategory -> 카테고리 전체 목록에서
+			● 2-1) film_category 추가 /on/addFilmCategory -> 카테고리 전체 목록에서 => [이슈] 이미 추가된 카테고리 다시 추가 시 PK 중복 에러
 			2-2) film_category 삭제 /on/removeFilmCaterory
 			
 			● 3) film_actor 리스트
@@ -44,7 +44,11 @@
 			
 			<div>
 				<h3>작품 장르 (CATEGORY)</h3>
-				<form method="post"><!-- 해당 영화 카테고리 추가 -->
+				
+				<!-- 해당 영화 카테고리 추가 -->
+				<form id="formFilmCategory" method="post" 
+					action="${pageContext.request.contextPath}/on/addFilmCategory"> 
+					<input type="hidden" name="filmId" value="${film.filmId}">
 					<select name="categoryId" id="categoryId">
 						<option value="">카테고리 선택</option>
 						<!-- model.allCategoryList -->
@@ -52,7 +56,7 @@
 							<option value="${ac.categoryId}">${ac.name}</option>
 						</c:forEach>
 					</select>
-						<button type="button">해당 영화 카테고리 선택</button>
+						<button type="button" id="btnFilmCategory">해당 영화 카테고리 선택</button>
 				</form>
 				
 				<!-- 카테고리 리스트 model.filmCategoryList-->
@@ -160,4 +164,14 @@
 		</div>
 	</div>
 </body>
+
+<script>
+	$('#btnFilmCategory').click(function() {
+		if($('#categoryId').val() == ''){
+			alert('categoryId를 선택하세요');
+		} else {
+			$('#formFilmCategory').submit();
+		}
+	});
+</script>
 </html>	
