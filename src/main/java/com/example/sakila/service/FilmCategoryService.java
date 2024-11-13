@@ -15,6 +15,10 @@ import com.example.sakila.vo.FilmCategory;
 public class FilmCategoryService {
 	@Autowired FilmCategoryMapper filmCategoryMapper;
 	
+	// 필름상세 -> 카테고리 추가 : /on/addFilmCategory
+	public Integer removeFilmCategory(FilmCategory filmCategory) {
+		return filmCategoryMapper.deleteFilmCategory(filmCategory);
+	}
 	
 	// 필름상세 -> 카테고리 추가 : /on/addFilmCategory
 	public Integer addFilmCategory(FilmCategory filmCategory) {

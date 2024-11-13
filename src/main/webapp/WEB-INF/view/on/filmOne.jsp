@@ -27,7 +27,7 @@
 			
 			● 2) film_category 리스트
 			● 2-1) film_category 추가 /on/addFilmCategory -> 카테고리 전체 목록에서 => [이슈] 이미 추가된 카테고리 다시 추가 시 PK 중복 에러
-			2-2) film_category 삭제 /on/removeFilmCaterory
+			● 2-2) film_category 삭제 /on/removeFilmCaterory
 			
 			● 3) film_actor 리스트
 			3-1) film_actor 추가 /on/addActorByFilm -> 배우 "검색" 후 선택
@@ -65,7 +65,7 @@
 						<div>
 							${fc.name}
 							&nbsp;
-							<a href="">삭제</a>
+							<a href="${pageContext.request.contextPath}/on/removeFilmCategory?filmId=${fc.filmId}&categoryId=${fc.categoryId}">삭제</a>
 						</div>
 					</c:forEach>
 				</div>
