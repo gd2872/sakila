@@ -30,7 +30,7 @@
 			● 2-2) film_category 삭제 /on/removeFilmCaterory
 			
 			● 3) film_actor 리스트
-			3-1) film_actor 추가 /on/addActorByFilm -> 배우 "검색" 후 선택
+			● 3-1) film_actor 추가 /on/addActorByFilm -> 배우 "검색" 후 선택
 			3-2) film_actor 삭제 /on/removeFileActor
 			
 			4) inventory 정보
@@ -148,7 +148,9 @@
 					</form>
 				
 					<!-- 출연 배우 추가 -->
-					<form method="post">
+					<form method="post" id="formFilmActor"
+						action="${pageContext.request.contextPath}/on/addFilmActorByFilm">
+						<input type="hidden" name="filmId" value="${film.filmId}">
 						<select name="actorId" id="actorId">
 							<option value="">배우 선택</option>
 							<!-- model.searchActorList -->
@@ -157,14 +159,17 @@
 							</c:forEach>
 						
 						</select>
-						<button type="button">출연배우 추가</button>
+						<button type="button" id="btnFilmActor">출연배우 추가</button>
 					</form>
 				
 					<c:forEach var="a" items="${actorList}">
 						<div>
 							<a href="${pageContext.request.contextPath}/on/actorOne?actorId=${a.actorId}">
-								${a.firstName} ${a.firstName}
+								${a.firstName} ${a.lastName}
 							</a>
+							&nbsp;
+							<a href="${pageContext.request.contextPath}/on/removeFilmActorByFilm?filmId=${film.filmId}&actorId=${a.actorId}">
+							삭제</a>
 						</div>
 					</c:forEach>
 				</div>
@@ -175,6 +180,14 @@
 </body>
 
 <script>
+
+	$('#btnFilmActor').click(function() {
+		if($('#actorId').val() == null || $('#actorId').val() == ''){
+			alert('출연배우를 선택하세요');
+		} else {
+			$('#formFilmActor').submit();
+		}
+	});
 
 	$('#btnSearchName').click(function() {
 		if($('#searchName').val() == ''){
